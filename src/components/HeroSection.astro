@@ -1,0 +1,31 @@
+---
+interface Cta {
+	label: string;
+	href: string;
+}
+
+interface Props {
+	title: string;
+	description: string;
+	primaryCta: Cta;
+	secondaryCta?: Cta;
+}
+
+const { title, description, primaryCta, secondaryCta } = Astro.props as Props;
+---
+
+<section class="hero-section backdrop-gradient">
+	<div class="container d-flex flex-column gap-4 align-items-start text-start">
+		<span class="feature-pill">Mandarin Excellence for Global Learners</span>
+		<h1 class="hero-title overflow-anywhere">{title}</h1>
+		<p class="hero-copy max-w-720 overflow-anywhere">{description}</p>
+		<div class="d-flex flex-wrap gap-3">
+			<a class="btn btn-gradient btn-lg shadow-soft" href={primaryCta.href}>{primaryCta.label}</a>
+			{secondaryCta && (
+				<a class="btn btn-outline-dark btn-lg" href={secondaryCta.href}>
+					{secondaryCta.label}
+				</a>
+			)}
+		</div>
+	</div>
+</section>

@@ -1,0 +1,119 @@
+.hero-section {
+	position: relative;
+	padding-top: 6rem;
+	padding-bottom: 4rem;
+}
+
+.hero-section .hero-title {
+	font-size: clamp(2.5rem, 5vw, 3.5rem);
+	font-weight: 700;
+}
+
+.hero-section .hero-copy {
+	font-size: 1.1rem;
+	color: var(--brand-muted);
+}
+
+.hero-section::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 15% 20%, rgba(241, 96, 75, 0.35), transparent 55%);
+	filter: blur(60px);
+	z-index: -1;
+}
+
+.feature-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.45rem 0.95rem;
+	border-radius: 999px;
+	background-color: rgba(17, 24, 39, 0.05);
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--brand-primary);
+}
+
+.grid-gap-lg {
+	gap: 1.75rem;
+}
+
+.icon-circle {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(241, 96, 75, 0.12);
+	color: var(--brand-primary);
+	font-size: 1.25rem;
+}
+
+.success-card strong {
+	font-size: 1.05rem;
+	display: block;
+	margin-bottom: 0.35rem;
+}
+
+.testimonial-card blockquote {
+	font-style: italic;
+	color: var(--brand-dark);
+	margin-bottom: 1.1rem;
+}
+
+.testimonial-card span {
+	color: var(--brand-muted);
+}
+
+.contact-card dl {
+	margin: 0;
+}
+
+.contact-card dt {
+	font-weight: 600;
+	color: var(--brand-dark);
+}
+
+.contact-card dd {
+	margin-left: 0;
+	color: var(--brand-muted);
+}
+
+.trusted-grid .card {
+	min-height: 100%;
+}
+
+.partner-highlight {
+	background: rgba(241, 96, 75, 0.08);
+	border-radius: 1rem;
+	padding: 1.5rem;
+	border: 1px solid rgba(241, 96, 75, 0.15);
+}
+
+.stat-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-weight: 600;
+	color: var(--brand-primary);
+	font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+	.hero-section {
+		padding-top: 4.5rem;
+		padding-bottom: 3rem;
+	}
+
+	.hero-section .hero-title {
+		font-size: clamp(2.1rem, 8vw, 2.9rem);
+	}
+}
+
+@media (max-width: 576px) {
+	.hero-section .hero-copy {
+		font-size: 1rem;
+	}
+}

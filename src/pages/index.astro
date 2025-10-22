@@ -1,778 +1,308 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const navigation = [
-	{ label: 'About', href: '#about' },
-	{ label: 'Core Strengths', href: '#core-strengths' },
-	{ label: 'Courses', href: '#courses' },
-	{ label: 'Children', href: '#children' },
-	{ label: 'Partners', href: '#partners' },
-	{ label: 'Success', href: '#success' },
-	{ label: 'Testimonials', href: '#testimonials' },
-	{ label: 'Mission', href: '#mission' },
-	{ label: 'Partnerships', href: '#partnerships' },
-	{ label: 'Contact', href: '#contact' }
-];
-
-const coreStrengths = [
-	{
-		title: 'A Team of Experienced Professionals',
-		description:
-			'Certified TCFL educators with international experience deliver bilingual lessons enriched with cultural insights and tailored guidance.'
-	},
-	{
-		title: 'Personalized Learning Plans',
-		description:
-			'Every learner begins with a complimentary assessment so we can design individualized pathways, from daily conversation to HSK preparation.'
-	},
-	{
-		title: 'Flexible Learning Modes',
-		description:
-			'Choose in-person or live online lessons that fit global schedules, with weekday and weekend sessions that keep progress on track.'
-	},
-	{
-		title: 'Authoritative Curriculum System',
-		description:
-			'Programs align with HSK standards and include specialized tracks spanning business Chinese, cultural immersion, and exam readiness.'
-	},
-	{
-		title: 'Where Tradition Meets Innovation',
-		description:
-			'Expert instruction pairs with the Mandalion educational app featuring AI-driven pronunciation checks, vocabulary practice, and real-time feedback.'
-	}
-];
-
-const adultCourses = [
-	{
-		name: 'Happy Chinese',
-		description:
-			'A multi-level journey for beginners built on Hanban’s trusted materials to balance linguistic foundations with communicative confidence.',
-		highlights: [
-			'Structured route: progress from core vocabulary to rich dialogues and grammar patterns.',
-			'Context-driven: lively scenarios connect classroom learning to everyday life.',
-			'Multi-format materials: textbooks, workbooks, and multimedia reinforce listening, speaking, reading, and writing.',
-			'Continuous feedback: frequent quizzes reveal growth areas and guide next steps.'
-		]
-	},
-	{
-		name: 'Business Chinese',
-		description:
-			'Develop the fluency, etiquette, and cultural literacy required to succeed in Mandarin-speaking corporate environments.',
-		highlights: [
-			'Practical focus: role-play meetings, travel, interviews, and marketing projects.',
-			'Progressive modules: build from essentials to advanced negotiation and case analysis.',
-			'Cross-cultural insights: decode regional business norms to avoid miscommunication.',
-			'Immersive practice: real cases and simulations make lessons meaningful and memorable.'
-		]
-	},
-	{
-		name: 'HSK Preparation (Level 3 & 4)',
-		description:
-			'A targeted path that blends language development with evidence-based exam strategies to accelerate HSK success.',
-		highlights: [
-			'Syllabus aligned: covers every required grammar structure and vocabulary item.',
-			'Skill + strategy: strengthen listening, speaking, reading, and writing while mastering exam techniques.',
-			'Full coverage: practice each section and question type with guided drills.',
-			'Anytime resources: audio, exercises, and an online question bank support in-class and self-study.'
-		]
-	},
-	{
-		name: 'Chinese Cultural Immersion',
-		description:
-			'Explore China’s heritage and contemporary culture while expanding language fluency through interactive, multimedia experiences.',
-		highlights: [
-			'Immersive media: films, dramas, documentaries, and music showcase authentic language use.',
-			'Deep cultural context: uncover the historical and social roots behind expressions.',
-			'Interactive sessions: discussions, debates, and role-play build confidence.',
-			'Integrated skills: connect listening, speaking, reading, and writing with cultural literacy.'
-		]
-	}
-];
-
-const childrenCourseHighlights = [
-	'Story-driven lessons, songs, and games inspire curiosity and joy.',
-	'Cultural connections introduce festivals, traditions, and daily life in China.',
-	'Communication-first approach builds real-world speaking confidence.',
-	'Small class sizes ensure personalized feedback and participation for every learner.'
-];
-
-const clients = [
-	'Samsung CNT Corporation',
-	'Mediterranean Shipping Company (MSC)',
-	'Infineon Technologies',
-	'Singapore American School',
-	'MOE Language Centre (Ministry of Education Language Centre)'
-];
-
-const successStories = [
-	{
-		name: 'Anna · Germany',
-		detail:
-			'Passed HSK Level 4 within six months and gained admission to a graduate program in China.'
-	},
-	{
-		name: 'Michael · Singapore',
-		detail: 'Closed a million-dollar client deal after completing the Business Chinese course.'
-	},
-	{
-		name: 'Aisha · Indonesia',
-		detail: 'Earned HSK Level 2 certification and now collaborates fluently with suppliers.'
-	}
-];
-
-const testimonials = [
-	{
-		quote:
-			'After the Business Chinese course, I can now confidently deliver presentations in Mandarin.',
-		name: 'James',
-		role: 'Marketing Manager'
-	},
-	{
-		quote: 'The HSK preparation course helped me pass quickly and effectively.',
-		name: 'Maria',
-		role: 'Student'
-	},
-	{
-		quote:
-			'The Chinese Culture Experience class gave me a deeper understanding of China’s traditions and modern society.',
-		name: 'Sophia',
-		role: 'Graduate Student'
-	},
-	{
-		quote:
-			'My child really enjoys the Children’s Chinese class. Through games and stories, he now speaks Mandarin with greater confidence.',
-		name: 'David',
-		role: 'Parent'
-	},
-	{
-		quote:
-			'The Chinese lessons at Mandalion Education improved my daily communication skills, which helps a lot in school.',
-		name: 'Kevin',
-		role: 'International School Student'
-	}
-];
+import SiteHeader from '../components/SiteHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import '../styles/home.css';
+import {
+	navigation,
+	heroContent,
+	aboutSection,
+	coreStrengths,
+	coursesOverview,
+	adultCourses,
+	childrenSection,
+	clients,
+	partnersIntro,
+	successStories,
+	testimonials,
+	missionSection,
+	partnershipSection,
+	contactSection
+} from '../data/site-content';
 ---
 
 <Layout
 	title="Mandalion Education | Professional Mandarin Courses for Global Learners"
 	description="Mandalion Education delivers research-backed Mandarin programs, personalized learning plans, and flexible online or in-person courses for learners worldwide."
 >
-	<header class="site-header" id="top">
-		<div class="container header-content">
-			<div class="brand">
-				<span class="brand-mark" aria-hidden="true">M</span>
-				<div>
-					<p class="brand-name">Mandalion Education</p>
-					<p class="brand-tagline">Empowering language learning, bridging the world.</p>
-				</div>
-			</div>
-			<nav aria-label="Primary">
-				<ul>
-					{navigation.map((item) => (
-						<li><a href={item.href}>{item.label}</a></li>
-					))}
-				</ul>
-			</nav>
-		</div>
-	</header>
+	<SiteHeader
+		navigation={navigation}
+		brandName="Mandalion Education"
+		tagline="Empowering language learning, bridging the world."
+	/>
 
 	<main>
-		<section class="hero">
-			<div class="container hero-content">
-				<h1>Empowering language learning, bridging the world.</h1>
-				<p>
-					Mandalion Education provides intensive Mandarin courses for non-native speakers, delivering
-					research-backed programs that help learners communicate confidently in real-world
-					situations.
-				</p>
-				<div class="hero-actions">
-					<a class="cta primary" href="#contact">Stay Updated</a>
-					<a class="cta secondary" href="#courses">Explore Courses</a>
-				</div>
-			</div>
-		</section>
+		<HeroSection
+			title={heroContent.title}
+			description={heroContent.description}
+			primaryCta={heroContent.primaryCta}
+			secondaryCta={heroContent.secondaryCta}
+		/>
 
-		<section id="about" class="section">
-			<div class="container split">
-				<div>
-					<h2>About Mandalion Education</h2>
-					<p>
-						Mandalion Education operates under Study Trust International Group in Singapore. Our
-						team designs structured Mandarin programs that empower learners to express ideas clearly,
-						use language accurately, and build proficiency through practical application.
-					</p>
-				</div>
-				<div class="card">
-					<h3>What Sets Us Apart</h3>
-					<p>
-						We cover pronunciation, characters, vocabulary, grammar, and fluency with integrated
-						listening, speaking, reading, and writing practice across meaningful scenarios.
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<section id="core-strengths" class="section light">
+		<section id="about" class="section-padding">
 			<div class="container">
-				<h2>Core Strengths</h2>
-				<ul class="grid grid-strengths">
+				<div class="row g-4 align-items-stretch">
+					<div class="col-lg-7">
+						<h2 class="section-title overflow-anywhere">{aboutSection.heading}</h2>
+						<p class="section-description overflow-anywhere">{aboutSection.body}</p>
+					</div>
+					<div class="col-lg-5">
+						<div class="card card-elevated h-100">
+							<div class="card-body">
+								<h3 class="h5 fw-bold overflow-anywhere">{aboutSection.cardTitle}</h3>
+								<p class="text-muted-custom overflow-anywhere">{aboutSection.cardBody}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="core-strengths" class="section-padding bg-white">
+			<div class="container">
+				<div class="text-center mb-4">
+					<h2 class="section-title overflow-anywhere">Core Strengths</h2>
+					<p class="section-description mx-auto overflow-anywhere">
+						Professional learning experiences that blend expert instruction, tailored pathways, and modern technology.
+					</p>
+				</div>
+				<div class="row g-4">
 					{coreStrengths.map((item) => (
-						<li class="card">
-							<h3>{item.title}</h3>
-							<p>{item.description}</p>
-						</li>
+						<div class="col-md-6 col-lg-4">
+							<div class="card card-elevated card-outline h-100">
+								<div class="card-body d-flex flex-column gap-2 overflow-anywhere">
+									<h3 class="h5 fw-semibold overflow-anywhere">{item.title}</h3>
+									<p class="text-muted-custom overflow-anywhere">{item.description}</p>
+								</div>
+							</div>
+						</div>
 					))}
-				</ul>
-			</div>
-		</section>
-
-		<section id="courses" class="section">
-			<div class="container split">
-				<div>
-					<h2>Our Courses</h2>
-					<p>
-						Our curriculum blends neuroscience, cognitive psychology, and second language acquisition
-						research. Each level advances seamlessly from foundational skills to cultural fluency,
-						leveraging carefully curated themes and authentic materials.
-					</p>
 				</div>
-				<ul class="card accent">
-					<li>
-						<strong>Research-Based</strong>
-						<p>Scientifically informed design meets learners where they are.</p>
-					</li>
-					<li>
-						<strong>Culturally Grounded</strong>
-						<p>Real-world content deepens cultural understanding alongside language skills.</p>
-					</li>
-					<li>
-						<strong>Progressive Growth</strong>
-						<p>Precisely calibrated stages nurture confidence and independent learning.</p>
-					</li>
-				</ul>
 			</div>
 		</section>
 
-		<section id="adult-courses" class="section light">
+		<section id="courses" class="section-padding">
 			<div class="container">
-				<h2>Courses for Adults</h2>
-				{/* Course blocks share a layout for scalability if new offerings are added */}
-				{adultCourses.map((course) => (
-					<article class="course-card">
-						<header>
-							<h3>{course.name}</h3>
-							<p>{course.description}</p>
-						</header>
-						<ul>
-							{course.highlights.map((highlight) => (
-								<li>{highlight}</li>
-							))}
-						</ul>
-					</article>
-				))}
+				<div class="row g-4 align-items-stretch">
+					<div class="col-lg-7 d-flex flex-column gap-3">
+						<h2 class="section-title overflow-anywhere">{coursesOverview.heading}</h2>
+						<p class="section-description overflow-anywhere">{coursesOverview.body}</p>
+					</div>
+					<div class="col-lg-5">
+						<div class="card card-elevated card-outline h-100">
+							<div class="card-body d-flex flex-column gap-3">
+								{coursesOverview.highlights.map((highlight) => (
+									<div>
+										<strong class="d-block overflow-anywhere">{highlight.title}</strong>
+										<p class="text-muted-custom overflow-anywhere">{highlight.detail}</p>
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<section id="children" class="section">
-			<div class="container split">
-				<div>
-					<h2>Courses for Children</h2>
-					<p>
-						Our Chinese for Children (Levels 1&#8211;3) curriculum, built on the renowned Rainbow
-						Dragon series, supports learners aged 7&#8211;12 through immersive storytelling,
-						interactive games, and culturally rich activities.
-					</p>
+		<section id="adult-courses" class="section-padding bg-white">
+			<div class="container">
+				<div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-4">
+					<div>
+						<h2 class="section-title overflow-anywhere">Courses for Adults</h2>
+						<p class="section-description overflow-anywhere">
+							Flexible pathways for beginners to advanced professionals, centered on real-world communication.
+						</p>
+					</div>
+					<span class="stat-badge">Structured | Practical | Immersive</span>
 				</div>
-				<ul class="card">
-					{childrenCourseHighlights.map((highlight) => (
-						<li>{highlight}</li>
+				<div class="row g-4">
+					{adultCourses.map((course) => (
+						<div class="col-md-6">
+							<article class="card card-elevated h-100">
+								<div class="card-body d-flex flex-column gap-3 overflow-anywhere">
+									<header>
+										<h3 class="h5 fw-semibold overflow-anywhere">{course.name}</h3>
+										<p class="text-muted-custom overflow-anywhere">{course.description}</p>
+									</header>
+									<ul class="mb-0 overflow-anywhere">
+										{course.highlights.map((highlight) => (
+											<li class="mb-2 overflow-anywhere">{highlight}</li>
+										))}
+									</ul>
+								</div>
+							</article>
+						</div>
 					))}
-				</ul>
+				</div>
 			</div>
 		</section>
 
-		<section id="partners" class="section light">
+		<section id="children" class="section-padding">
 			<div class="container">
-				<h2>Institutions &amp; Enterprises That Trust Us</h2>
-				<p>
-					Mandalion Education partners with international schools and global corporations to deliver
-					customized language solutions.
-				</p>
-				<ul class="grid grid-clients">
+				<div class="row g-4 align-items-stretch">
+					<div class="col-lg-7">
+						<h2 class="section-title overflow-anywhere">{childrenSection.heading}</h2>
+						<p class="section-description overflow-anywhere">{childrenSection.body}</p>
+					</div>
+					<div class="col-lg-5">
+						<div class="card card-elevated h-100">
+							<div class="card-body">
+								<ul class="mb-0 overflow-anywhere">
+									{childrenSection.highlights.map((highlight) => (
+										<li class="mb-3 overflow-anywhere">{highlight}</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="partners" class="section-padding bg-white">
+			<div class="container">
+				<div class="text-center mb-5">
+					<h2 class="section-title overflow-anywhere">Institutions &amp; Enterprises That Trust Us</h2>
+					<p class="section-description mx-auto overflow-anywhere">{partnersIntro}</p>
+				</div>
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 trusted-grid">
 					{clients.map((client) => (
-						<li class="card">{client}</li>
+						<div class="col">
+							<div class="card card-outline h-100 d-flex align-items-center justify-content-center text-center py-4 px-3 overflow-anywhere">
+								<span class="fw-semibold overflow-anywhere">{client}</span>
+							</div>
+						</div>
 					))}
-					<li class="card">...and many more worldwide partners.</li>
-				</ul>
+					<div class="col">
+						<div class="card card-outline h-100 d-flex align-items-center justify-content-center text-center py-4 px-3 overflow-anywhere">
+							<span class="fw-semibold overflow-anywhere">...and many more worldwide partners.</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<section id="success" class="section">
+		<section id="success" class="section-padding">
 			<div class="container">
-				<h2>Students’ Success Stories</h2>
-				<ul class="grid grid-success">
+				<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+					<h2 class="section-title overflow-anywhere">Students’ Success Stories</h2>
+					<span class="badge-soft">Real results across industries &amp; stages</span>
+				</div>
+				<div class="row g-4">
 					{successStories.map((story) => (
-						<li class="card">
-							<strong>{story.name}</strong>
-							<p>{story.detail}</p>
-						</li>
+						<div class="col-md-4">
+							<div class="card card-elevated h-100 success-card">
+								<div class="card-body overflow-anywhere">
+									<strong class="overflow-anywhere">{story.name}</strong>
+									<p class="text-muted-custom overflow-anywhere mb-0">{story.detail}</p>
+								</div>
+							</div>
+						</div>
 					))}
-				</ul>
+				</div>
 			</div>
 		</section>
 
-		<section id="testimonials" class="section light">
+		<section id="testimonials" class="section-padding bg-white">
 			<div class="container">
-				<h2>Student Testimonials</h2>
-				<div class="grid grid-testimonials">
+				<div class="text-center mb-5">
+					<h2 class="section-title overflow-anywhere">Student Testimonials</h2>
+					<p class="section-description mx-auto overflow-anywhere">
+						Voices from professionals, parents, and learners who experienced the Mandalion approach.
+					</p>
+				</div>
+				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 					{testimonials.map((testimonial) => (
-						<figure class="card">
-							<blockquote>{testimonial.quote}</blockquote>
-							<figcaption>
-								<strong>{testimonial.name}</strong>
-								<span>{testimonial.role}</span>
-							</figcaption>
-						</figure>
+						<div class="col">
+							<figure class="card card-elevated h-100 testimonial-card p-4 overflow-anywhere">
+								<blockquote class="overflow-anywhere">“{testimonial.quote}”</blockquote>
+								<figcaption class="d-flex flex-column gap-1 overflow-anywhere">
+									<strong class="overflow-anywhere">{testimonial.name}</strong>
+									<span class="overflow-anywhere">{testimonial.role}</span>
+								</figcaption>
+							</figure>
+						</div>
 					))}
 				</div>
 			</div>
 		</section>
 
-		<section id="mission" class="section">
-			<div class="container split">
-				<div>
-					<h2>Mission &amp; Vision</h2>
-					<p>
-						We deliver high-quality language programs for learners of all ages in Singapore and
-						beyond, uniting proven pedagogy with AI innovation to build an internationalized,
-						future-ready learning platform.
-					</p>
-				</div>
-				<div class="card">
-					<h3>Looking Ahead</h3>
-					<p>
-						Our expansion plans include new offline centers across Southeast Asia and additional
-						language offerings that meet global demand for multilingual expertise.
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<section id="partnerships" class="section light">
-			<div class="container split">
-				<div>
-					<h2>Partnership Opportunities</h2>
-					<p>
-						We collaborate with educational institutions, schools, universities, distributors, and
-						government organizations to localize content, expand regional reach, and co-create
-						innovative teaching models.
-					</p>
-				</div>
-				<ul class="card">
-					<li>Co-develop localized curriculum and blended learning solutions.</li>
-					<li>Launch joint programs that broaden access to Mandarin learning.</li>
-					<li>Enhance channel promotion with shared resources and expertise.</li>
-				</ul>
-			</div>
-		</section>
-
-		<section id="contact" class="section contact">
+		<section id="mission" class="section-padding">
 			<div class="container">
-				<h2>Stay Connected</h2>
-				<p>
-					We are finalizing our official site and digital channels. Reach out to explore
-					collaboration, enroll in upcoming cohorts, or receive launch updates.
-				</p>
-				<div class="card contact-card">
-					<dl>
-						<div>
-							<dt>Official Site</dt>
-							<dd>TBA</dd>
+				<div class="row g-4 align-items-stretch">
+					<div class="col-lg-7">
+						<h2 class="section-title overflow-anywhere">{missionSection.heading}</h2>
+						<p class="section-description overflow-anywhere">{missionSection.body}</p>
+					</div>
+					<div class="col-lg-5">
+						<div class="card card-elevated h-100 partner-highlight">
+							<div class="card-body overflow-anywhere">
+								<h3 class="h5 fw-semibold overflow-anywhere">{missionSection.cardTitle}</h3>
+								<p class="text-muted-custom overflow-anywhere mb-0">{missionSection.cardBody}</p>
+							</div>
 						</div>
-						<div>
-							<dt>Email / eFeedback</dt>
-							<dd>TBA</dd>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="partnerships" class="section-padding bg-white">
+			<div class="container">
+				<div class="row g-4 align-items-stretch">
+					<div class="col-lg-6">
+						<h2 class="section-title overflow-anywhere">{partnershipSection.heading}</h2>
+						<p class="section-description overflow-anywhere">{partnershipSection.body}</p>
+					</div>
+					<div class="col-lg-6">
+						<div class="card card-elevated h-100">
+							<div class="card-body">
+								<ul class="mb-0 overflow-anywhere">
+									{partnershipSection.highlights.map((highlight) => (
+										<li class="mb-3 overflow-anywhere">{highlight}</li>
+									))}
+								</ul>
+							</div>
 						</div>
-					</dl>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="section-padding bg-soft">
+			<div class="container">
+				<div class="row g-4 align-items-stretch">
+					<div class="col-lg-6">
+						<h2 class="section-title overflow-anywhere">{contactSection.heading}</h2>
+						<p class="section-description overflow-anywhere">{contactSection.body}</p>
+					</div>
+					<div class="col-lg-6">
+						<div class="card card-elevated h-100 contact-card">
+							<div class="card-body d-flex flex-column gap-3">
+								<div class="d-grid gap-3">
+									{contactSection.details.map((detail) => (
+										<div>
+											<p class="mb-1 fw-semibold overflow-anywhere">{detail.term}</p>
+											<p class="mb-0 text-muted-custom overflow-anywhere">{detail.detail}</p>
+										</div>
+									))}
+								</div>
+								<p class="mb-0 text-muted-custom">
+									Follow our updates to be the first to know when the Mandalion app launches with more AI-powered tools.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 	</main>
 
-	<footer class="site-footer">
-		<div class="container footer-content">
-			<p>&copy; {new Date().getFullYear()} Mandalion Education. All rights reserved.</p>
-			<a href="#top">Back to top</a>
+	<footer class="bg-dark text-white py-4">
+		<div class="container d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+			<p class="mb-0">&copy; {new Date().getFullYear()} Mandalion Education. All rights reserved.</p>
+			<div class="d-flex gap-3">
+				<a class="footer-link" href="#contact">Contact</a>
+			</div>
 		</div>
 	</footer>
 </Layout>
-
-<style>
-	:global(:root) {
-		color-scheme: light;
-		font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-		background-color: #f5f7fb;
-		color: #1a1a1f;
-	}
-
-	:global(body) {
-		margin: 0;
-		font-size: 1rem;
-		line-height: 1.6;
-	}
-
-	:global(a) {
-		color: inherit;
-	}
-
-	.container {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 0 1.5rem;
-	}
-
-	.site-header {
-		background: rgba(255, 255, 255, 0.9);
-		position: sticky;
-		top: 0;
-		z-index: 10;
-		backdrop-filter: blur(12px);
-		border-bottom: 1px solid rgba(26, 26, 31, 0.08);
-	}
-
-	.header-content {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0.85rem 1.5rem;
-		gap: 1.5rem;
-	}
-
-	.brand {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
-
-	.brand-mark {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: 0.75rem;
-		background: linear-gradient(135deg, #f97316, #f43f5e);
-		color: #fff;
-		font-weight: 700;
-		font-size: 1.35rem;
-	}
-
-	.brand-name {
-		font-weight: 700;
-		margin: 0;
-	}
-
-	.brand-tagline {
-		margin: 0;
-		font-size: 0.875rem;
-		color: #4b5563;
-	}
-
-	nav ul {
-		display: flex;
-		gap: 1rem;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	nav a {
-		font-size: 0.9rem;
-		padding: 0.25rem 0.5rem;
-		border-radius: 0.5rem;
-		text-decoration: none;
-		color: #111827;
-		transition: background-color 0.2s ease, color 0.2s ease;
-	}
-
-	nav a:hover,
-	nav a:focus-visible {
-		background-color: rgba(17, 24, 39, 0.1);
-		color: #0f172a;
-	}
-
-	.hero {
-		background: radial-gradient(circle at top left, rgba(239, 68, 68, 0.15), transparent),
-			linear-gradient(180deg, rgba(14, 165, 233, 0.14), transparent);
-		padding: 4.5rem 0 3.5rem;
-		text-align: center;
-	}
-
-	.hero h1 {
-		font-size: clamp(2.5rem, 5vw, 3.5rem);
-		margin-bottom: 1rem;
-	}
-
-	.hero p {
-		max-width: 700px;
-		margin: 0 auto 2rem;
-		font-size: 1.125rem;
-		color: #374151;
-	}
-
-	.hero-actions {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	.cta {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		border-radius: 999px;
-		font-weight: 600;
-		text-decoration: none;
-		border: 1px solid transparent;
-	}
-
-	.cta.primary {
-		background: linear-gradient(135deg, #f97316, #ef4444);
-		color: #fff;
-	}
-
-	.cta.primary:hover {
-		filter: brightness(0.95);
-	}
-
-	.cta.secondary {
-		border-color: rgba(17, 24, 39, 0.2);
-		color: #111827;
-		background: #fff;
-	}
-
-	.cta.secondary:hover {
-		border-color: rgba(17, 24, 39, 0.4);
-	}
-
-	.section {
-		padding: 4rem 0;
-	}
-
-	.section.light {
-		background-color: #ffffff;
-	}
-
-	.split {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 2rem;
-		align-items: start;
-	}
-
-	h2 {
-		margin-top: 0;
-		margin-bottom: 1rem;
-		font-size: 2rem;
-	}
-
-	h3 {
-		margin-top: 0;
-		margin-bottom: 0.5rem;
-		font-size: 1.25rem;
-	}
-
-	p {
-		margin-top: 0;
-		color: #4b5563;
-	}
-
-	.card {
-		background: #fff;
-		border-radius: 1rem;
-		padding: 1.5rem;
-		box-shadow: 0 20px 40px -24px rgba(15, 23, 42, 0.25);
-		border: 1px solid rgba(15, 23, 42, 0.05);
-	}
-
-	.card.accent {
-		background: linear-gradient(135deg, rgba(248, 250, 252, 1), rgba(219, 234, 254, 0.75));
-	}
-
-	.grid {
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.grid-strengths {
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	}
-
-	.course-card {
-		display: grid;
-		gap: 1rem;
-		padding: 1.75rem;
-		background: #fff;
-		border-radius: 1.25rem;
-		box-shadow: 0 24px 60px -32px rgba(15, 23, 42, 0.3);
-		border: 1px solid rgba(15, 23, 42, 0.06);
-	}
-
-	.course-card header p {
-		margin-bottom: 0;
-	}
-
-	.course-card ul,
-	.card ul {
-		margin: 0;
-		padding-left: 1.25rem;
-		color: #374151;
-	}
-
-	.card ul li {
-		margin-bottom: 0.75rem;
-	}
-
-	.card ul li:last-child {
-		margin-bottom: 0;
-	}
-
-	.grid-clients {
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	}
-
-	.grid-success {
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	}
-
-	.grid-testimonials {
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	}
-
-	blockquote {
-		margin: 0 0 1rem;
-		font-style: italic;
-		color: #1f2937;
-	}
-
-	figcaption {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		font-size: 0.9rem;
-		color: #4b5563;
-	}
-
-	figcaption strong {
-		font-size: 1rem;
-		color: #111827;
-	}
-
-	.contact {
-		background: linear-gradient(160deg, rgba(14, 165, 233, 0.08), rgba(239, 68, 68, 0.08));
-	}
-
-	.contact-card dl {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 1.5rem;
-		margin: 0;
-	}
-
-	dt {
-		font-weight: 600;
-		color: #111827;
-	}
-
-	dd {
-		margin: 0.25rem 0 0;
-		color: #4b5563;
-	}
-
-	.site-footer {
-		background-color: #0f172a;
-		color: rgba(255, 255, 255, 0.8);
-		padding: 1.5rem 0;
-	}
-
-	.footer-content {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.site-footer a {
-		color: rgba(255, 255, 255, 0.9);
-		text-decoration: none;
-		font-size: 0.9rem;
-	}
-
-	.site-footer a:hover {
-		text-decoration: underline;
-	}
-
-	@media (max-width: 960px) {
-		nav ul {
-			flex-wrap: wrap;
-			justify-content: flex-end;
-		}
-	}
-
-	@media (max-width: 720px) {
-		.header-content {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-		nav ul {
-			width: 100%;
-			justify-content: flex-start;
-			gap: 0.5rem;
-			flex-wrap: wrap;
-		}
-
-		.hero {
-			text-align: left;
-		}
-
-		.hero-content {
-			text-align: left;
-		}
-
-		.hero-actions {
-			justify-content: flex-start;
-		}
-	}
-
-	@media (max-width: 540px) {
-		.hero {
-			padding-top: 3.5rem;
-		}
-
-		nav ul {
-			gap: 0.4rem;
-		}
-
-		nav a {
-			font-size: 0.8rem;
-		}
-
-		.section {
-			padding: 3rem 0;
-		}
-
-		.card,
-		.course-card {
-			padding: 1.25rem;
-		}
-
-		.footer-content {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-	}
-</style>
